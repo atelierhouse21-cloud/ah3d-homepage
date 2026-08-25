@@ -1,54 +1,16 @@
 "use client";
-
 import { useState } from "react";
 
-const services = [
-  { no: "01", title: "3D 프린팅", text: "산업용 장비와 소재 선택을 바탕으로, 아이디어를 정밀한 실물로 완성합니다.", icon: "◌" },
-  { no: "02", title: "기계 설계", text: "제조 환경과 사용성을 고려한 구조 설계로 제품의 가능성을 넓힙니다.", icon: "⌗" },
-  { no: "03", title: "시제품 제작", text: "검증과 개선이 빠르게 이어지는 프로토타입 제작 프로세스를 제공합니다.", icon: "◇" },
-  { no: "04", title: "기술개발 지원", text: "설계 검토부터 개발 파트너 연결까지, 실행 가능한 기술 해법을 찾습니다.", icon: "↗" },
-];
-
-const projects = [
-  { tag: "MECHANICAL DESIGN", title: "Precision Drive Unit", kind: "project-one" },
-  { tag: "PROTOTYPING", title: "Functional Housing", kind: "project-two" },
-  { tag: "3D PRINTING", title: "Industrial Fixture", kind: "project-three" },
-];
+const services = [["♜","3D 프린팅","FDM / SLA / SLS 등\n전문 설비를 이용한 3D 프린팅 서비스"],["⚙","기계 설계","제품 설계, 도면 제작, 구조 해석 등\n전문 설계 솔루션 제공"],["♙","시제품 제작","빠르고 정확한 시제품 제작으로\n아이디어를 현실로"],["✥","기술 개발 지원","제품 개발 전 과정의 기술 자문 및\n맞춤형 지원"]];
+const projects = [["https://pantex.energy.gov/sites/default/files/PPH-25-144505.jpg","정밀 기계 부품"],["https://www.jp-photo.com.tw/images/portfolio-jiepin/life/p_0001.jpg","경량화 설계"],["https://www.lwtsistemas.com.br/wp-content/uploads/2019/08/iStock-1042631772.jpg","기능성 시제품"],["https://etteplan.b-cdn.net/2024/02/upcast-reference.png?quality=60&width=750","산업용 하우징"]];
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
-  const close = () => setOpen(false);
-
-  return <main>
-    <header className="header">
-      <a className="logo" href="#top" onClick={close}>AH<span>3D</span></a>
-      <nav className={open ? "nav open" : "nav"} aria-label="주요 메뉴">
-        <a href="#about" onClick={close}>ABOUT</a><a href="#services" onClick={close}>SERVICES</a><a href="#portfolio" onClick={close}>PORTFOLIO</a><a href="#contact" onClick={close}>CONTACT</a>
-      </nav>
-      <a className="header-contact" href="#contact">프로젝트 문의 <span>↗</span></a>
-      <button className="menu-button" aria-label="메뉴 열기" aria-expanded={open} onClick={() => setOpen(!open)}><i></i><i></i></button>
-    </header>
-
-    <section className="hero" id="top">
-      <div className="hero-grid"></div><div className="hero-glow"></div>
-      <div className="hero-copy">
-        <p className="eyebrow">PRECISION ENGINEERING STUDIO</p>
-        <h1>IDEAS<br /><em>BUILT</em> <span>WITH</span><br />PRECISION.</h1>
-        <p className="hero-text">정밀한 설계와 디지털 제조 기술로<br />당신의 아이디어를 현실로 만듭니다.</p>
-        <a className="button gold" href="#contact">프로젝트 시작하기 <b>↗</b></a>
-      </div>
-      <div className="hero-object" aria-hidden="true"><div className="ring ring-a"></div><div className="ring ring-b"></div><div className="core"></div><div className="line l1"></div><div className="line l2"></div></div>
-      <div className="scroll">SCROLL TO EXPLORE <span>↓</span></div>
-    </section>
-
-    <section className="intro section" id="about"><p className="eyebrow gold-text">WHAT WE DO</p><div><h2>복잡한 문제를<br /><em>정교한 결과물</em>로.</h2><p>AH3D는 제조와 디자인 사이의 간극을 줄입니다. 3D 프린팅, 기계 설계, 시제품 제작까지 — 경험과 기술을 연결해 더 나은 제품의 출발을 만듭니다.</p></div></section>
-
-    <section className="services section" id="services"><div className="section-heading"><div><p className="eyebrow gold-text">CAPABILITIES</p><h2>OUR <em>SERVICES</em></h2></div><p>아이디어의 초기 단계부터<br />제조 가능한 완성까지 함께합니다.</p></div><div className="service-grid">{services.map((item) => <article className="service-card" key={item.no}><span className="service-no">{item.no}</span><span className="service-icon">{item.icon}</span><h3>{item.title}</h3><p>{item.text}</p><a href="#contact" aria-label={`${item.title} 문의`}>자세히 보기 <b>↗</b></a></article>)}</div></section>
-
-    <section className="portfolio section" id="portfolio"><div className="section-heading"><div><p className="eyebrow gold-text">SELECTED WORK</p><h2>MADE TO <em>PERFORM.</em></h2></div><a className="text-link" href="#contact">전체 프로젝트 보기 <b>↗</b></a></div><div className="project-grid">{projects.map((project) => <article className={`project ${project.kind}`} key={project.title}><div className="project-visual"><div className="object-shape"></div></div><div className="project-info"><p>{project.tag}</p><h3>{project.title}</h3><span>VIEW CASE STUDY ↗</span></div></article>)}</div></section>
-
-    <section className="cta" id="contact"><p className="eyebrow gold-text">LET&apos;S MAKE IT REAL</p><h2>다음 아이디어를<br /><em>함께 만들까요?</em></h2><p>프로젝트의 목표와 필요한 기술을 알려주세요.<br />AH3D가 가장 현실적인 방법을 제안합니다.</p><a className="button gold" href="mailto:hello@ah3d.co.kr">프로젝트 문의하기 <b>↗</b></a></section>
-
-    <footer><a className="logo" href="#top">AH<span>3D</span></a><div><p>3D PRINTING · MECHANICAL DESIGN<br />PROTOTYPING · TECHNICAL DEVELOPMENT</p><a href="mailto:hello@ah3d.co.kr">hello@ah3d.co.kr</a></div><p className="copyright">© 2026 AH3D. ALL RIGHTS RESERVED.</p></footer>
-  </main>;
+ const [open,setOpen]=useState(false);
+ return <main>
+  <header className="topbar"><a href="#home" className="logo">AH<span>3D</span></a><nav className={open?"links open":"links"}>{[["HOME","#home"],["ABOUT","#about"],["SERVICE","#service"],["PORTFOLIO","#portfolio"],["EQUIPMENT","#equipment"],["BLOG","#blog"],["CONTACT","#contact"]].map(([name,href])=><a href={href} onClick={()=>setOpen(false)} key={name}>{name}</a>)}</nav><a className="inquiry" href="#contact">문의하기</a><button className="hamburger" onClick={()=>setOpen(!open)} aria-label="메뉴 열기"><span></span><span></span></button></header>
+  <section className="hero" id="home"><div className="blueprint"></div><div className="hero-photo"></div><div className="hero-shade"></div><div className="hero-copy"><h1>아이디어를 설계하고,<br /><strong>기술</strong>로 현실을 만듭니다.</h1><p>3D 프린팅과 기계 설계를 기반으로<br />정밀한 제품 개발과 맞춤형 솔루션을 제공합니다.</p><div className="hero-actions"><a href="#service" className="fill">서비스 보기</a><a href="#portfolio" className="outline">포트폴리오 보기</a></div></div></section>
+  <section className="service-strip" id="service">{services.map(([symbol,title,text])=><article key={title}><div className="service-symbol">{symbol}</div><div><h2>{title}</h2><p>{text}</p></div></article>)}</section>
+  <section className="portfolio" id="portfolio"><div className="portfolio-head"><div><p>PORTFOLIO</p><h2>정밀함이 만들어낸 결과물</h2></div><a href="#contact">더보기 〉</a></div><div className="project-list">{projects.map(([image,name])=><article key={name}><img src={image} alt="" /><div><p>AH3D PROJECT</p><h3>{name}</h3></div></article>)}</div></section>
+  <section className="about" id="about"><p>AH3D ENGINEERING</p><h2>설계에서 제작까지,<br />한 단계씩 정확하게.</h2><a href="#contact" className="outline">AH3D 소개 보기</a></section><section className="contact" id="contact"><p>PROJECT INQUIRY</p><h2>새로운 프로젝트를<br /><strong>시작해 보세요.</strong></h2><a href="mailto:hello@ah3d.co.kr" className="fill">프로젝트 문의하기</a></section><footer><a className="logo" href="#home">AH<span>3D</span></a><p>3D PRINTING · MECHANICAL DESIGN · PROTOTYPING</p><a href="mailto:hello@ah3d.co.kr">hello@ah3d.co.kr</a><small>© 2026 AH3D. ALL RIGHTS RESERVED.</small></footer>
+ </main>;
 }
