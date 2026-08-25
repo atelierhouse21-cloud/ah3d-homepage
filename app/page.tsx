@@ -11,7 +11,7 @@ export default function Home() {
  const [open,setOpen]=useState(false);
  return <main>
   <header className="topbar"><a href="#home" className="logo">AH<span>3D</span></a><nav className={open?"links open":"links"}>{[["HOME","#home"],["PORTFOLIO","#portfolio"],["3D PRINTING","#service"]].map(([name,href])=><a href={href} onClick={()=>setOpen(false)} key={name}>{name}</a>)}</nav><a className="inquiry" href="#contact">CONTACT</a><button className="hamburger" onClick={()=>setOpen(!open)} aria-label="메뉴 열기"><span></span><span></span></button></header>
-  <section className="hero" id="home"><div className="blueprint"></div><div className="hero-photo"></div><div className="hero-shade"></div><div className="hero-copy"><h1>견적은 더 빠르게,<br /><strong>가격은 언제나 투명하게.</h1><p>파일만 올리면, 언제든 바로 확인하는<br />
+  <section className="hero" id="home"><div className="blueprint"></div><div className="hero-photo"></div><div className="hero-shade"></div><div className="hero-copy"><h1>견적은 더 빠르게,<br /><strong>가격은 언제나 투명하게.</strong></h1><p>파일만 올리면, 언제든 바로 확인하는<br />
 3D프린팅 자동 견적 서비스.</p><div className="hero-actions"><a href={QUOTE_URL} className="fill">3D프린팅 자동 견적 받기</a></div></div></section>
   <section className="service-strip" id="service">{services.map(([symbol,title,text])=><article key={title}><div className="service-symbol">{symbol}</div><div><h2>{title}</h2><p>{text}</p></div></article>)}</section>
   <section className="portfolio" id="portfolio"><div className="portfolio-head"><div><p>PORTFOLIO</p><h2>정밀함이 만들어낸 결과물</h2></div><a href="#contact">더보기 〉</a></div><div className="project-list">{projects.map(([image,name])=><article key={name}><img src={image} alt="" /><div><p>AH3D PROJECT</p><h3>{name}</h3></div></article>)}</div></section>
