@@ -3,9 +3,12 @@ import { useState } from "react";
 
 const MENU: [string, string][] = [
   ["HOME", "#home"],
-  ["PORTFOLIO", "#portfolio"],
-  ["3D PRINTING", "#service"],
+  ["WORKS", "#works"],
+  ["CONTACT", "#contact"],
 ];
+
+// 견적앱 주소 — 바꾸실 때는 app/page.tsx 위쪽의 QUOTE_URL 도 함께 확인하세요.
+const QUOTE_URL = "https://auto-quote.ah3d.kr/";
 
 export default function TopBar() {
   const [open, setOpen] = useState(false);
@@ -13,7 +16,9 @@ export default function TopBar() {
   return (
     <header className="topbar">
       <a href="#home" className="logo">
-        AH<span>3D</span>
+        {/* 로고 이미지가 준비되면 아래 한 줄을 이미지로 바꾸세요.
+            예: <img src="/logo.svg" alt="아틀리에 하우스" height={20} /> */}
+        ATELIER HOUSE
       </a>
       <nav className={open ? "links open" : "links"}>
         {MENU.map(([name, href]) => (
@@ -22,8 +27,8 @@ export default function TopBar() {
           </a>
         ))}
       </nav>
-      <a className="inquiry" href="#contact">
-        CONTACT
+      <a className="inquiry" href={QUOTE_URL}>
+        견적 요청
       </a>
       <button
         className="hamburger"

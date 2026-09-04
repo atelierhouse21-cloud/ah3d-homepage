@@ -1,22 +1,134 @@
 import TopBar from "@/components/TopBar";
-import PortfolioCarousel from "@/components/PortfolioCarousel";
+import PortfolioGrid from "@/components/PortfolioGrid";
 import { getProjects } from "@/lib/projects";
 
-// 견적앱 주소 — 바꾸실 때는 이 한 줄만 수정하세요.
+// 견적앱 주소 — 바꾸실 때는 이 한 줄과 components/TopBar.tsx 를 함께 수정하세요.
 const QUOTE_URL = "https://auto-quote.ah3d.kr/";
 
-const services = [["♜","3D 프린팅","FDM / SLA / SLS 등\n전문 설비를 이용한 3D 프린팅 서비스"],["⚙","기계 설계","제품 설계, 도면 제작, 구조 해석 등\n전문 설계 솔루션 제공"],["♙","시제품 제작","빠르고 정확한 시제품 제작으로\n아이디어를 현실로"],["✥","기술 개발 지원","제품 개발 전 과정의 기술 자문 및\n맞춤형 지원"]];
+// 연락처 — 실제 정보로 바꿔주세요.
+const EMAIL = "hello@ah3d.kr";
+const PHONE = "010-0000-0000";
+
+// 히어로 아래를 흘러가는 키워드입니다. 자유롭게 추가·삭제하세요.
+const KEYWORDS = ["FDM 출력", "SLA 출력", "기계 설계", "시제품 제작", "기구 부품", "후가공·도색", "소량 생산", "3D 스캔"];
+
+function Ticker() {
+  const line = (
+    <span>
+      {KEYWORDS.map((k) => (
+        <span key={k}>
+          {k}
+          <b> ✦ </b>
+        </span>
+      ))}
+    </span>
+  );
+  // 끊김 없이 이어지도록 같은 줄을 두 번 넣습니다.
+  return (
+    <div className="ticker">
+      <div className="ticker-inner">
+        {line}
+        {line}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
- // public/portfolio/ 폴더의 사진을 자동으로 읽어옵니다.
- const projects = getProjects();
+  // public/portfolio/ 폴더의 사진을 자동으로 읽어옵니다.
+  const projects = getProjects();
 
- return <main>
-  <TopBar />
-  <section className="hero" id="home"><div className="blueprint"></div><div className="hero-photo"></div><div className="hero-shade"></div><div className="hero-copy"><h1>견적은 더 빠르게,<br />가격은 언제나 <strong>투명하게.</strong></h1><p>파일만 올리면, 언제든 바로 확인하는<br />
-3D프린팅 자동 견적 서비스.</p><div className="hero-actions"><a href={QUOTE_URL} className="fill">3D 프린팅 견적 요청</a></div></div></section>
-  <section className="service-strip" id="service">{services.map(([symbol,title,text])=><article key={title}><div className="service-symbol">{symbol}</div><div><h2>{title}</h2><p>{text}</p></div></article>)}</section>
-  <section className="portfolio" id="portfolio"><div className="portfolio-head"><div><p>PORTFOLIO</p><h2>정밀함이 만들어낸 결과물</h2></div><a href="#contact">더보기 〉</a></div><PortfolioCarousel items={projects} /></section>
-  <section className="about" id="about"><p>AH3D ENGINEERING</p><h2>설계에서 제작까지,<br />한 단계씩 정확하게.</h2><a href="#contact" className="outline">AH3D 소개 보기</a></section><section className="contact" id="contact"><p>PROJECT INQUIRY</p><h2>새로운 프로젝트를<br /><strong>시작해 보세요.</strong></h2><a href="mailto:hello@ah3d.co.kr" className="fill">프로젝트 문의하기</a></section><footer><a className="logo" href="#home">AH<span>3D</span></a><p>3D PRINTING · MECHANICAL DESIGN · PROTOTYPING</p><a href="mailto:hello@ah3d.co.kr">hello@ah3d.co.kr</a><small>© 2026 AH3D. ALL RIGHTS RESERVED.</small></footer>
- </main>;
+  return (
+    <main>
+      <TopBar />
+
+      <section className="hero" id="home">
+        <div className="blueprint"></div>
+        <div className="wrap hero-body">
+          <p className="eyebrow">3D PRINTING STUDIO</p>
+          <h1>
+            견적은 더 빠르게,
+            <br />
+            <em>가격은 언제나 투명하게.</em>
+          </h1>
+          <p className="hero-lead">
+            아틀리에 하우스는 3D 프린팅 출력과 기계 설계를 함께 다루는
+            스튜디오입니다. 도면 한 장에서 시작해 시제품, 기구 부품, 소량
+            생산까지 한 곳에서 진행합니다.
+          </p>
+          <div className="hero-actions">
+            <a href={QUOTE_URL} className="fill">
+              3D 프린팅 견적 요청
+            </a>
+            <a href="#works" className="quiet">
+              작업물 보기 →
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <Ticker />
+
+      <section className="works" id="works">
+        <div className="wrap">
+          <p className="slabel">WORKS</p>
+          <div className="works-head">
+            <h2>정밀함이 만들어낸 결과물</h2>
+            <p className="count">
+              <b>{projects.length}</b>
+              Projects
+            </p>
+          </div>
+          <PortfolioGrid items={projects} />
+        </div>
+      </section>
+
+      <section className="contact" id="contact">
+        <div className="wrap">
+          <p className="slabel">CONTACT</p>
+          <h2>
+            도면 한 장으로
+            <br />
+            시작해 보세요.
+          </h2>
+          <a href={`mailto:${EMAIL}`} className="mail">
+            {EMAIL} →
+          </a>
+          <div className="cgrid">
+            <div>
+              <h4>INQUIRY</h4>
+              <p>
+                {EMAIL}
+                <br />
+                {PHONE}
+              </p>
+            </div>
+            <div>
+              <h4>HOURS</h4>
+              <p>
+                평일 09:00 — 18:00
+                <br />
+                주말·공휴일 휴무
+              </p>
+            </div>
+            <div>
+              <h4>SERVICES</h4>
+              <p>
+                3D 프린팅 · 기계 설계
+                <br />
+                시제품 제작 · 후가공
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="wrap footer-row">
+          <span>© 2026 아틀리에 하우스 ATELIER HOUSE</span>
+          <span>사업자등록번호 000-00-00000</span>
+        </div>
+      </footer>
+    </main>
+  );
 }
