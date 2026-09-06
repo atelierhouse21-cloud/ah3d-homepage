@@ -107,3 +107,43 @@ footer{border-top:1px solid var(--line);padding:32px 0}
   html{scroll-behavior:auto}
   .ticker-inner{animation:none}
 }
+
+/* ── FDM 가이드 페이지 ── */
+.guide-head{padding:84px 0 60px;border-bottom:1px solid var(--line);position:relative}
+.guide-title{font-size:clamp(28px,4.6vw,50px);font-weight:700;letter-spacing:-.035em;line-height:1.2;margin-bottom:22px}
+.guide-lead{font-size:16px;line-height:1.95;color:var(--tx-mute);max-width:56ch}
+.guide-body{padding:20px 28px 90px}
+.gsec{padding:52px 0;border-bottom:1px solid var(--line)}
+.gsec h2{font-size:clamp(19px,2.4vw,25px);font-weight:700;letter-spacing:-.02em;margin-bottom:16px}
+.gsec h3{font-size:14px;font-weight:600;color:var(--tx-mute);margin-bottom:12px;letter-spacing:.02em}
+.gsec>p{font-size:15px;line-height:1.95;color:var(--tx-mute);max-width:62ch;margin-bottom:22px}
+.gsec strong{color:var(--tx);font-weight:600}
+.gnote{font-size:14px!important;color:var(--tx-dim)!important;border-left:2px solid var(--gold);padding-left:16px;margin-top:22px!important;margin-bottom:0!important}
+
+.gtable{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:6px}
+.gtable th{text-align:left;font-size:11px;letter-spacing:.14em;color:var(--tx-dim);font-weight:600;padding:0 0 12px;border-bottom:1px solid var(--line)}
+.gtable td{padding:14px 0;border-bottom:1px solid var(--line);color:var(--tx-mute)}
+.gtable td:last-child{color:var(--gold);font-weight:600;text-align:right}
+
+.glist{list-style:none;border-top:1px solid var(--line)}
+.glist li{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+.glist span{color:var(--tx-mute)}
+.glist b{color:var(--gold);font-weight:600;white-space:nowrap}
+
+.gbullets{list-style:none;display:grid;gap:16px}
+.gbullets li{position:relative;padding-left:20px;font-size:15px;line-height:1.9;color:var(--tx-mute);max-width:64ch}
+.gbullets li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+
+.gcols{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+
+.guide-cta{padding:60px 0 44px;text-align:center;border-bottom:1px solid var(--line)}
+.guide-cta h2{font-size:24px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.guide-cta p{font-size:15px;color:var(--tx-mute);margin-bottom:28px}
+.gdisclaimer{font-size:13px;color:var(--tx-dim);line-height:1.85;padding-top:30px;max-width:64ch}
+
+@media(max-width:720px){
+  .guide-head{padding:52px 0 40px}
+  .guide-body{padding:12px 20px 64px}
+  .gsec{padding:38px 0}
+  .gcols{grid-template-columns:1fr;gap:32px}
+}

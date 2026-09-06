@@ -2,9 +2,10 @@
 import { useState } from "react";
 
 const MENU: [string, string][] = [
-  ["HOME", "#home"],
-  ["WORKS", "#works"],
-  ["CONTACT", "#contact"],
+  ["HOME", "/#home"],
+  ["WORKS", "/#works"],
+  ["GUIDE", "/guide"],
+  ["CONTACT", "/#contact"],
 ];
 
 // 견적앱 주소 — 바꾸실 때는 app/page.tsx 위쪽의 QUOTE_URL 도 함께 확인하세요.
