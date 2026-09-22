@@ -1,5 +1,6 @@
 import TopBar from "@/components/TopBar";
 import { GUIDES, type GuideSection } from "@/lib/guides";
+import Footer from "@/components/home/Footer";
 
 export const metadata = {
   title: "모델링 가이드",
@@ -123,12 +124,7 @@ export default function GuidePage() {
         </p>
       </div>
 
-      <footer>
-        <div className="wrap footer-row">
-          <span>© 2026 아틀리에 하우스 ATELIER HOUSE</span>
-          <span>사업자등록번호 000-00-00000</span>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

@@ -10,7 +10,7 @@ export const siteContent = {
   brand: {
     name: "아틀리에 하우스",
     nameEn: "ATELIER HOUSE",
-    tagline: "3D 프린팅 스튜디오",
+    tagline: "3D Printing · Modeling · Engineering",
   },
 
   nav: [

@@ -1,21 +1,14 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import type { Project } from "@/lib/projects";
+import { CASES } from "@/lib/cases";
+import PortfolioCard from "@/components/home/PortfolioCard";
 
+const FILTERS = ["전체", "3D Printing", "3D Modeling", "Mechanical", "Prototype"];
+
+// /portfolio 페이지 전체 목록 — 분류 버튼으로 걸러 볼 수 있습니다.
 export default function PortfolioGrid({ items }: { items: Project[] }) {
-  // 파일 이름에 분류가 들어 있으면 분류 버튼을 자동으로 만듭니다.
-  const categories = useMemo(() => {
-    const found: string[] = [];
-    items.forEach((it) => {
-      if (it.category && !found.includes(it.category)) found.push(it.category);
-    });
-    return found;
-  }, [items]);
-
   const [active, setActive] = useState("전체");
-
-  const shown =
-    active === "전체" ? items : items.filter((it) => it.category === active);
 
   if (items.length === 0) {
     return <p className="works-empty">등록된 작업물이 아직 없습니다.</p>;
@@ -23,32 +16,23 @@ export default function PortfolioGrid({ items }: { items: Project[] }) {
 
   return (
     <>
-      {categories.length > 0 && (
-        <div className="tabs">
-          {["전체", ...categories].map((name) => (
-            <button
-              key={name}
-              className={active === name ? "tab on" : "tab"}
-              onClick={() => setActive(name)}
-            >
-              {name}
-            </button>
-          ))}
-        </div>
-      )}
-
-      <div className="work-grid">
-        {shown.map((item) => (
-          <article className="work-item" key={item.src}>
-            <div className="work-thumb">
-              <img src={item.src} alt={item.title} loading="lazy" />
-            </div>
-            <div className="work-text">
-              <h3>{item.title}</h3>
-              <p>{item.category || "ATELIER HOUSE"}</p>
-            </div>
-          </article>
+      <div className="ptabs">
+        {FILTERS.map((name) => (
+          <button
+            key={name}
+            className={active === name ? "on" : ""}
+            onClick={() => setActive(name)}
+          >
+            {name}
+          </button>
         ))}
+      </div>
+      <div className="fgrid">
+        {items.map((item) => {
+          const info = CASES[item.title];
+          const match = active === "전체" || !!info?.tags.includes(active);
+          return <PortfolioCard project={item} dim={!match} key={item.src} />;
+        })}
       </div>
     </>
   );

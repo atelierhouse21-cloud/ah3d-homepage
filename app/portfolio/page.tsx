@@ -1,51 +1,32 @@
-import SiteHeader from "@/components/site/SiteHeader";
-import SiteFooter from "@/components/site/SiteFooter";
-import { CtaBand } from "@/components/site/HomeSections";
-import { siteContent } from "@/lib/content";
-import { portfolioItems } from "@/lib/portfolio";
-import styles from "@/components/site/site.module.css";
+import TopBar from "@/components/TopBar";
+import Footer from "@/components/home/Footer";
+import ContactSection from "@/components/home/ContactSection";
+import PortfolioGrid from "@/components/PortfolioGrid";
+import { getProjects } from "@/lib/projects";
 
-export const metadata = { title: siteContent.portfolio.pageTitle };
+export const metadata = {
+  title: "포트폴리오",
+  description: "설계부터 제작까지 진행한 실제 작업을 소개합니다.",
+};
 
 export default function PortfolioPage() {
-  const { portfolio } = siteContent;
-
+  // public/portfolio/ 폴더의 사진을 자동으로 읽어옵니다.
+  const projects = getProjects();
   return (
-    <>
-      <SiteHeader />
-      <main className={`${styles.root} ${styles.page}`}>
-        <div className={styles.inner}>
-          <h1 className={styles.pageTitle}>{portfolio.pageTitle}</h1>
-          <p className={styles.pageBody}>{portfolio.pageBody}</p>
-
-          {portfolioItems.length === 0 ? (
-            <p className={styles.empty}>등록된 작업물이 아직 없습니다.</p>
-          ) : (
-            <div className={styles.lightGrid}>
-              {portfolioItems.map((item) => (
-                <article key={item.id}>
-                  <div className={styles.lightThumb}>
-                    {item.image ? (
-                      <img src={item.image} alt={item.title} />
-                    ) : (
-                      <span>사진 준비 중</span>
-                    )}
-                  </div>
-                  <h2 className={styles.lightTitle}>{item.title}</h2>
-                  <p className={styles.lightMeta}>
-                    {item.method} · {item.material}
-                  </p>
-                  {item.description && (
-                    <p className={styles.lightDesc}>{item.description}</p>
-                  )}
-                </article>
-              ))}
-            </div>
-          )}
+    <main>
+      <TopBar />
+      <section className="band white page-head">
+        <div className="wrap">
+          <p className="tlabel">PORTFOLIO</p>
+          <h1 className="h2 big">실제 제작 사례</h1>
+          <p className="desc">
+            설계부터 제작까지 진행한 실제 작업을 소개합니다.
+          </p>
+          <PortfolioGrid items={projects} />
         </div>
-      </main>
-      <CtaBand />
-      <SiteFooter />
-    </>
+      </section>
+      <ContactSection />
+      <Footer />
+    </main>
   );
 }
