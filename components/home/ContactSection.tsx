@@ -15,7 +15,7 @@ export default function ContactSection() {
         </div>
         <div className="contact-right">
           <div className="contact-btns">
-            <a href={mail("[설계·제작 문의]")} className="btn primary">설계·제작 문의</a>
+            <a href={mail("[부품·시제품 상담]")} className="btn primary">부품·시제품 상담</a>
             <a href={mail("[3D 모델링 의뢰]")} className="btn">3D 모델링 의뢰</a>
             <a href={QUOTE_URL} className="btn">3D 프린팅 견적</a>
           </div>

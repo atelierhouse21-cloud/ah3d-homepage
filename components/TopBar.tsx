@@ -1,17 +1,18 @@
 "use client";
 import { useState } from "react";
-import { MENU } from "@/lib/home";
+import { BRAND_NAME, MENU } from "@/lib/home";
 
 export default function TopBar() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="topbar">
-      <a href="/#home" className="logo" aria-label="ATELIER HOUSE AH3D">
-        {/* 로고 이미지가 준비되면 아래 두 줄을 이미지로 바꾸세요.
-            예: <img src="/logo.svg" alt="ATELIER HOUSE AH3D" height={20} /> */}
-        <span className="lg-a">ATELIER HOUSE</span>
-        <span className="lg-b">AH3D</span>
+      {/* 고객에게 보이는 메인 브랜드는 AH3D만 씁니다.
+          ATELIER HOUSE(사업자명)는 Footer의 사업자 정보에서만 노출됩니다.
+          로고 이미지가 준비되면 아래 줄을 이미지로 바꾸세요.
+          예: <img src="/logo.svg" alt="AH3D" height={20} /> */}
+      <a href="/#home" className="logo" aria-label={BRAND_NAME}>
+        <span className="lg-b">{BRAND_NAME}</span>
       </a>
       <nav className={open ? "links open" : "links"}>
         {MENU.map((m) => (
