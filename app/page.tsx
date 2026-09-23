@@ -1,7 +1,6 @@
 import TopBar from "@/components/TopBar";
 import HeroSection from "@/components/home/HeroSection";
 import ServiceSection from "@/components/home/ServiceSection";
-import PartsSection from "@/components/home/PartsSection";
 import HowToWorkSection from "@/components/home/HowToWorkSection";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import QualitySection from "@/components/home/QualitySection";
@@ -20,7 +19,6 @@ export default function Home() {
       <TopBar />
       <HeroSection />
       <ServiceSection projects={projects} />
-      <PartsSection projects={projects} />
       <HowToWorkSection />
       <PortfolioSection projects={projects} />
       <QualitySection />

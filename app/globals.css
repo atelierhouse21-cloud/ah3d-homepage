@@ -77,7 +77,8 @@ body{word-break:keep-all;overflow-wrap:break-word}
 .svc-head .h2{font-size:clamp(24px,2.6vw,32px)}
 .svc-head .desc{margin-bottom:0}
 .svc-row{display:grid;grid-template-columns:1.25fr 1fr;gap:64px;align-items:center;padding:64px 0;border-top:1px solid var(--line)}
-.svc-row.rev{grid-template-columns:1fr 1.25fr}
+/* rev(02)도 이미지 컬럼은 항상 넓은 쪽(1.25fr)을 쓴다 — order로 위치만 왼쪽으로 옮긴다.
+   그리드 트랙 자체를 뒤집으면(1fr 1.25fr) 이미지가 좁은 컬럼에 들어가는 버그가 생김(수정됨). */
 .svc-row.rev .svc-img-wrap{order:1}
 .svc-row.rev .svc-body{order:2}
 #engineering{grid-template-columns:1.35fr 1fr}
@@ -100,19 +101,6 @@ body{word-break:keep-all;overflow-wrap:break-word}
 .svc-body ul{list-style:none;display:grid;gap:7px;margin-bottom:24px}
 .svc-body li{position:relative;padding-left:14px;font-size:14px;color:var(--tx-mute)}
 .svc-body li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:1.5px;background:#94a3b8}
-
-/* ── PARTS — 사진 + 목록 (아이콘 없음) ── */
-.parts-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;align-items:center}
-.parts-fig{position:relative;overflow:hidden;background:#dfe3e8}
-.parts-fig img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
-.ann{position:absolute;display:flex;align-items:center}
-.ann i{width:9px;height:9px;border:1.5px solid var(--gold);border-radius:50%;background:rgba(255,255,255,.75)}
-.ann u{width:32px;height:1px;background:var(--gold)}
-.ann b{font:600 10px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;background:#fff;color:var(--gold-dim);padding:3px 7px}
-.parts-text .desc{margin-bottom:0}
-.parts-list{list-style:none;margin-top:8px;border-top:1px solid #d7dce4}
-.parts-list li{display:flex;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid #d7dce4;font-size:15px;font-weight:600;color:var(--ink)}
-.parts-list em{font-style:normal;font-size:11px;letter-spacing:.1em;color:var(--gold);font-weight:700;width:20px;flex:none}
 
 /* ── HOW TO WORK — 카드 아님, 얇은 구분선으로 나눈 스펙 그리드 ── */
 .how-head{max-width:640px;margin-bottom:32px}
@@ -228,7 +216,6 @@ body{word-break:keep-all;overflow-wrap:break-word}
   .svc-body .lcta{order:7;font-size:15px}
   #print .svc-img,#modeling .svc-img,#engineering .svc-img{aspect-ratio:4/3}
 
-  .parts-list{grid-template-columns:repeat(4,1fr);gap:22px 8px}
   .how-grid{grid-template-columns:repeat(2,1fr)}
   .how-item:nth-child(2n){border-right:none}
   .qrow{grid-template-columns:repeat(2,1fr)}
