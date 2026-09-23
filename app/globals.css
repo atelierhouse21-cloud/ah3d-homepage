@@ -298,3 +298,46 @@ body{word-break:keep-all;overflow-wrap:break-word}
 }
 
 @media(prefers-reduced-motion:reduce){.gt-mark{transition:none}}
+
+/* ── INQUIRY (/inquiry) ──
+   카드·그림자 없는 기존 디자인 톤 유지. 얇은 테두리 입력창 + 파란 포인트만 사용. */
+.iform{max-width:640px;margin-top:36px}
+.iform .field{margin-bottom:26px}
+.iform .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.iform .field-row .field{margin-bottom:0}
+.iform label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin-bottom:9px}
+.iform .req{color:var(--gold);margin-left:2px}
+.iform input[type=text],
+.iform input[type=email],
+.iform input[type=tel],
+.iform textarea{
+  width:100%;font:inherit;font-size:14.5px;color:var(--ink);background:#fff;
+  border:1px solid #d5dbe5;border-radius:5px;padding:12px 14px;transition:border-color .15s;
+}
+.iform input:focus,.iform textarea:focus{border-color:var(--gold);outline:none}
+.iform textarea{resize:vertical;min-height:150px;line-height:1.7;font-family:inherit}
+.iform input[type=file]{font-size:13px;color:var(--tx-mute)}
+
+.iform .type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:26px}
+.iform .type-opt{text-align:left;background:#fff;border:1px solid #d5dbe5;border-radius:5px;padding:14px 16px;cursor:pointer;transition:border-color .15s,background-color .15s}
+.iform .type-opt:hover{border-color:var(--gold)}
+.iform .type-opt.on{border-color:var(--gold);background:var(--grid-blue)}
+.iform .type-opt b{display:block;font-size:13.5px;color:var(--ink);margin-bottom:4px}
+.iform .type-opt small{display:block;font-size:12px;color:var(--tx-mute);line-height:1.5}
+
+.iform .hint{font-size:12px;color:var(--tx-dim);margin-top:8px;display:block}
+.iform .err{font-size:13px;color:#c0392b;margin:4px 0 18px}
+
+.iform .submit-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:6px;padding-top:8px;border-top:1px solid var(--line)}
+.iform .submit-row{padding-top:26px}
+.iform button[type=submit]{font-size:15px;font-weight:700;color:#fff;background:var(--gold);border:0;border-radius:5px;padding:14px 32px;cursor:pointer;transition:background-color .15s}
+.iform button[type=submit]:hover{background:var(--gold-dim)}
+.iform button[type=submit]:disabled{opacity:.5;cursor:not-allowed}
+.iform .submit-row .hint{margin-top:0}
+
+.iform-done{max-width:520px;margin-top:36px;padding-top:36px;border-top:1px solid var(--line)}
+
+@media(max-width:640px){
+  .iform .type-grid{grid-template-columns:1fr}
+  .iform .field-row{grid-template-columns:1fr;gap:26px}
+}

@@ -1,4 +1,5 @@
-import { EMAIL, QUOTE_URL, mail } from "@/lib/home";
+import { EMAIL, QUOTE_URL } from "@/lib/home";
+import { inquiryHref } from "@/lib/inquiry";
 
 export default function ContactSection() {
   return (
@@ -15,8 +16,8 @@ export default function ContactSection() {
         </div>
         <div className="contact-right">
           <div className="contact-btns">
-            <a href={mail("[부품·시제품 상담]")} className="btn primary">부품·시제품 상담</a>
-            <a href={mail("[3D 모델링 의뢰]")} className="btn">3D 모델링 의뢰</a>
+            <a href={inquiryHref("engineering")} className="btn primary">부품·시제품 상담</a>
+            <a href={inquiryHref("modeling")} className="btn">3D 모델링 의뢰</a>
             <a href={QUOTE_URL} className="btn">3D 프린팅 견적</a>
           </div>
           <a href={`mailto:${EMAIL}`} className="mail-link">

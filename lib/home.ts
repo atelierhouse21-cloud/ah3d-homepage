@@ -3,6 +3,8 @@
 // 화면에 나오는 글자와 버튼 연결은 이 파일에서 바꿉니다.
 // 따옴표(") 안쪽 글자만 바꾸시고, 따옴표와 쉼표(,)는 지우지 마세요.
 
+import { inquiryHref } from "@/lib/inquiry";
+
 // 고객에게 노출되는 메인 브랜드명 — 항상 "AH3D"만 씁니다.
 // "ATELIER HOUSE"는 법적 사업자명이라 Footer의 사업자 정보 영역에서만 씁니다.
 export const BRAND_NAME = "AH3D";
@@ -18,7 +20,8 @@ export const PHONE = "010-0000-0000";
 // 사업자 정보 — 임시값입니다. 실제 값으로 바꿔주세요.
 export const BUSINESS_NO = "000-00-00000";
 
-// 문의 메일 링크 (제목이 미리 채워집니다)
+// 문의 메일 링크 (제목이 미리 채워집니다) — 지금은 Footer 하단의 직접 메일
+// 링크에만 쓰고, 버튼들은 /inquiry 문의 폼으로 연결합니다 (lib/inquiry.ts).
 export const mail = (subject: string) =>
   `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}`;
 
@@ -43,13 +46,13 @@ export const HERO_PATHS = [
     icon: "doc",
     label: "3D 모델링 의뢰",
     sub: "도면 / 스케치 / 사진을 바탕으로 모델링",
-    href: mail("[3D 모델링 의뢰]"),
+    href: inquiryHref("modeling"),
   },
   {
     icon: "gear",
     label: "부품·시제품 상담",
     sub: "필요한 부품이나 기능 검증용 시제품 상담",
-    href: mail("[부품·시제품 상담]"),
+    href: inquiryHref("engineering"),
   },
 ];
 
@@ -73,7 +76,7 @@ export const SERVICES = [
     meta: "도면 · 스케치 · 사진",
     lead: "파일이 없어도 제작할 수 있습니다.",
     items: ["3D 모델링", "역설계", "기존 부품 수정"],
-    cta: { label: "모델링 의뢰하기 →", href: mail("[3D 모델링 의뢰]") },
+    cta: { label: "모델링 의뢰하기 →", href: inquiryHref("modeling") },
     image: { kind: "cad", ref: "/hero/part-link.png", alt: "3D 모델링 CAD 모델" },
   },
   {
@@ -83,7 +86,7 @@ export const SERVICES = [
     meta: "기계부품 · 지그 · 치구",
     lead: "필요한 부품의 구조부터 함께 설계합니다.",
     items: ["기계부품 설계", "지그 · 치구 설계", "기능 검증용 시제품"],
-    cta: { label: "부품·시제품 상담하기 →", href: mail("[부품·시제품 상담]") },
+    cta: { label: "부품·시제품 상담하기 →", href: inquiryHref("engineering") },
     image: {
       kind: "photo",
       ref: "군산대학교 개발 실험용 프로파일 구조",
@@ -108,17 +111,17 @@ export const PARTS = [
 // 고객의 현재 상황 → 연결되는 서비스/행동.
 export const HOW_TO_WORK = [
   { no: "01", cond: "파일이 있습니다.", target: "3D PRINTING", href: QUOTE_URL },
-  { no: "02", cond: "파일이 없습니다.", target: "3D MODELING", href: mail("[3D 모델링 의뢰]") },
+  { no: "02", cond: "파일이 없습니다.", target: "3D MODELING", href: inquiryHref("modeling") },
   {
     no: "03",
     cond: "부품 자체가 필요합니다.",
     target: "ENGINEERING",
-    href: mail("[부품·시제품 상담]"),
+    href: inquiryHref("engineering"),
   },
   {
     no: "04",
     cond: "어떤 방법이 필요한지 모르겠습니다.",
     target: "CONSULTATION",
-    href: mail("[상담 문의]"),
+    href: inquiryHref("consultation"),
   },
 ];
