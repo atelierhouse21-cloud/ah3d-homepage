@@ -155,7 +155,7 @@ export default function InquiryForm({
           {status === "submitting" ? "전송 중..." : "문의 보내기"}
         </button>
         <span className="hint">
-          바로 통화하시려면 {PHONE}, 이메일은{" "}
+          /바로 통화하시려면 {PHONE},/ 이메일은{" "}
           <a href={`mailto:${EMAIL}`} className="quiet">
             {EMAIL}
           </a>
