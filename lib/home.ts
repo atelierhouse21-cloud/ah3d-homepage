@@ -31,7 +31,7 @@ export const MENU: { label: string; href: string }[] = [
   { label: "모델링", href: "/#modeling" },
   { label: "설계·제작", href: "/#engineering" },
   { label: "포트폴리오", href: "/#works" },
-  { label: "가이드", href: "/guide" },
+ // { label: "가이드", href: "/guide" },
 ];
 
 // 첫 화면 아래 세 갈래 버튼
