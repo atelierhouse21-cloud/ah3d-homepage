@@ -14,7 +14,7 @@ export const BRAND_TAGLINE = "3D PRINTING · MODELING · ENGINEERING";
 export const QUOTE_URL = "https://auto-quote.ah3d.kr/";
 
 // 문의 이메일 / 전화 — 실제 정보로 바꿔주세요.
-export const EMAIL = "atelier_house@naver.com";
+export const EMAIL = "atelierhouse21@gmail.com";
 export const PHONE = "010-0000-0000";
 
 // 사업자 정보 — 임시값입니다. 실제 값으로 바꿔주세요.
