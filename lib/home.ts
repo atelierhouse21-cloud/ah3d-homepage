@@ -14,11 +14,11 @@ export const BRAND_TAGLINE = "3D PRINTING · MODELING · ENGINEERING";
 export const QUOTE_URL = "https://auto-quote.ah3d.kr/";
 
 // 문의 이메일 / 전화 — 실제 정보로 바꿔주세요.
-export const EMAIL = "hello@ah3d.kr";
-export const PHONE = "010-0000-0000";
+export const EMAIL = "atelier_house@naver.com";
+//export const PHONE = "010-0000-0000";
 
 // 사업자 정보 — 임시값입니다. 실제 값으로 바꿔주세요.
-export const BUSINESS_NO = "000-00-00000";
+export const BUSINESS_NO = "144-25-01355";
 
 // 문의 메일 링크 (제목이 미리 채워집니다) — 지금은 Footer 하단의 직접 메일
 // 링크에만 쓰고, 버튼들은 /inquiry 문의 폼으로 연결합니다 (lib/inquiry.ts).
@@ -62,9 +62,9 @@ export const SERVICES = [
     id: "print",
     no: "01",
     name: "3D PRINTING",
-    meta: "SLA · MSLA · FDM",
+    meta: "MSLA · FDM",
     lead: "파일이 있다면 바로 제작합니다.",
-    items: ["세척 · 경화", "후가공", "소량 제작"],
+    items: ["후가공", "소량 제작"],
     cta: { label: "자동 견적 받기 →", href: QUOTE_URL },
     // 사진 제목(public/portfolio 파일 이름에서 나온 이름). 다른 사진으로 바꾸려면 여기만 수정.
     image: { kind: "photo", ref: "로봇개 골격 제작", alt: "3D 프린팅 출력물" },
