@@ -15,7 +15,7 @@ export const QUOTE_URL = "https://auto-quote.ah3d.kr/";
 
 // 문의 이메일 / 전화 — 실제 정보로 바꿔주세요.
 export const EMAIL = "atelier_house@naver.com";
-export const PHONE = "010-0000-0000";
+//export const PHONE = "010-0000-0000";
 
 // 사업자 정보 — 임시값입니다. 실제 값으로 바꿔주세요.
 export const BUSINESS_NO = "144-25-01355";
@@ -39,7 +39,7 @@ export const HERO_PATHS = [
   {
     icon: "cube",
     label: "3D 프린팅 견적",
-    sub: "STL / 3MF 파일을 업로드하여 자동견적",
+    sub: "STL / STP,STEP 파일을 업로드하여 자동견적",
     href: QUOTE_URL,
   },
   {
