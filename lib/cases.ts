@@ -13,8 +13,8 @@ export type CaseInfo = {
   desc: string; // 카드에 나오는 한 줄 설명
 };
 
-{/*export const CASES: Record<string, CaseInfo> = {
-  "군산대학교 개발 실험용 프로파일 구조": {
+export const CASES: Record<string, CaseInfo> = {
+  {/*"군산대학교 개발 실험용 프로파일 구조": {
     name: "실험용 프로파일 구조",
     tags: ["Mechanical"],
     desc: "실험용 장비 프레임 제작",
@@ -35,5 +35,5 @@ export type CaseInfo = {
     name: "로봇개 골격",
     tags: ["3D Printing", "3D Modeling"],
     desc: "출력·조립 테스트 부품",
-  },
-};*/}
+  },*/}
+};
