@@ -13,27 +13,4 @@ export type CaseInfo = {
   desc: string; // 카드에 나오는 한 줄 설명
 };
 
-export const CASES: Record<string, CaseInfo> = {
-  {/*"군산대학교 개발 실험용 프로파일 구조": {
-    name: "실험용 프로파일 구조",
-    tags: ["Mechanical"],
-    desc: "실험용 장비 프레임 제작",
-  },
-  "V0.1": { name: "더치머신 V0.1", tags: ["Mechanical", "Prototype"], desc: "1차 시제품 제작" },
-  "V0.3": { name: "더치머신 V0.3", tags: ["Mechanical", "Prototype"], desc: "구조 개선 및 설계" },
-  "2차": {
-    name: "롤러형 도구 2차",
-    tags: ["3D Printing", "Prototype"],
-    desc: "증거 채취용 롤러형 도구 제작",
-  },
-  "SWP 노스트로 디카페인 설비(테스트 모델)": {
-    name: "디카페인 설비 테스트 모델",
-    tags: ["Mechanical", "Prototype"],
-    desc: "설비 검증용 테스트 모델",
-  },
-  "로봇개 골격 제작": {
-    name: "로봇개 골격",
-    tags: ["3D Printing", "3D Modeling"],
-    desc: "출력·조립 테스트 부품",
-  },*/}
-};
+export const CASES: Record<string, CaseInfo> = {};
