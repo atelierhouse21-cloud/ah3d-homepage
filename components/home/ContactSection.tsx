@@ -16,7 +16,7 @@ export default function ContactSection() {
         </div>
         <div className="contact-right">
           <div className="contact-btns">
-            <a href={inquiryHref("engineering")} className="btn primary">부품·시제품 상담</a>
+            <a href={inquiryHref("engineering")} className="btn">부품·시제품 상담</a>
             <a href={inquiryHref("modeling")} className="btn">3D 모델링 의뢰</a>
             <a href={QUOTE_URL} className="btn">3D 프린팅 견적</a>
           </div>
