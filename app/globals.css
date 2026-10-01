@@ -82,7 +82,7 @@ body{word-break:keep-all;overflow-wrap:break-word}
 .svc-row.rev .svc-body{order:2}
 #engineering{grid-template-columns:1.35fr 1fr}
 #modeling{padding:56px 0}
-#modeling .svc-img{aspect-ratio:16/10}
+#modeling .svc-img{aspect-ratio:4/3}
 #print .svc-img,#engineering .svc-img{aspect-ratio:4/3}
 .svc-img-wrap{position:relative}
 .svc-img-wrap::before,.svc-img-wrap::after{content:"";position:absolute;width:18px;height:18px;z-index:2}
