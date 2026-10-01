@@ -66,8 +66,8 @@ export const SERVICES = [
     lead: "파일이 있다면 바로 제작합니다.",
     items: ["후가공", "소량 제작"],
     cta: { label: "자동 견적 받기 →", href: QUOTE_URL },
-    // 사진 제목(public/portfolio 파일 이름에서 나온 이름). 다른 사진으로 바꾸려면 여기만 수정.
-    image: { kind: "photo", ref: "로봇개 골격 제작", alt: "3D 프린팅 출력물" },
+    // 이미지 파일 경로를 직접 가리킵니다 (public/service/ 폴더). 다른 사진으로 바꾸려면 여기만 수정.
+    image: { kind: "photo", ref: "/service/3d-printing-parts.jpg", alt: "3D 프린팅 출력물" },
   },
   {
     id: "modeling",
@@ -77,7 +77,7 @@ export const SERVICES = [
     lead: "파일이 없어도 제작할 수 있습니다.",
     items: ["3D 모델링", "역설계", "기존 부품 수정"],
     cta: { label: "모델링 의뢰하기 →", href: inquiryHref("modeling") },
-    image: { kind: "cad", ref: "/hero/part-link.png", alt: "3D 모델링 CAD 모델" },
+    image: { kind: "cad", ref: "/service/3d-modeling-cad.png", alt: "3D 모델링 CAD 모델" },
   },
   {
     id: "engineering",
@@ -89,8 +89,8 @@ export const SERVICES = [
     cta: { label: "부품·시제품 상담하기 →", href: inquiryHref("engineering") },
     image: {
       kind: "photo",
-      ref: "군산대학교 개발 실험용 프로파일 구조",
-      alt: "실험용 프로파일 구조",
+      ref: "/service/engineering-machine.png",
+      alt: "설계·제작 장비",
     },
   },
 ];

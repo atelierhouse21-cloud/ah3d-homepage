@@ -4,7 +4,10 @@ import type { Project } from "@/lib/projects";
 // 서비스 3개를 카드가 아니라, 이미지와 글이 번갈아 배치되는
 // editorial section 3개로 보여줍니다. (섹션 사이는 얇은 구분선만 사용)
 export default function ServiceSection({ projects }: { projects: Project[] }) {
-  const photo = (title: string) => projects.find((p) => p.title === title)?.src ?? "";
+  // "/"로 시작하면 public/ 폴더의 파일 경로를 직접 쓰고,
+  // 아니면 포트폴리오 사진 제목으로 보고 public/portfolio/에서 찾습니다.
+  const photo = (ref: string) =>
+    ref.startsWith("/") ? ref : projects.find((p) => p.title === ref)?.src ?? "";
 
   return (
     <section className="band white" id="services">
