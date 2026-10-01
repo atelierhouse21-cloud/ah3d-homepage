@@ -83,9 +83,9 @@ export const SERVICES = [
     id: "engineering",
     no: "03",
     name: "ENGINEERING",
-    meta: "기계부품 · 지그 · 치구",
+    meta: "특수용도 기계 · 기계부품 · 지그",
     lead: "필요한 부품의 구조부터 함께 설계합니다.",
-    items: ["기계부품 설계", "지그 · 치구 설계", "기능 검증용 시제품"],
+    items: ["특수용도 기계", "기계부품 설계", "지그", "기능 검증용 시제품"],
     cta: { label: "부품·시제품 상담하기 →", href: inquiryHref("engineering") },
     image: {
       kind: "photo",
